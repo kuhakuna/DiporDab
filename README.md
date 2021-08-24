@@ -1,4 +1,4 @@
-# DiporDab
+# Dip or Dab
 The League Champ Select Ultimate Tool
 
 Want to know right away if you should DODGE?
