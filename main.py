@@ -6,8 +6,6 @@
 # Other information, check out the API documentation (https://developer.riotgames.com/apis)
 # Imports
 import re
-import cassiopeia as cass
-from cassiopeia import Summoner
 import os
 from TeammateWatcherClass import TeammateWatcher
 
@@ -15,21 +13,17 @@ from riotwatcher import LolWatcher, ApiError
 
 from matchdto import MatchData
 
-from BlankWinObject import BlankMatch
-
 # Global Variables
 lw = LolWatcher(os.environ.get('RIOTAPIKEY'), default_match_v5=True)
-bg = BlankMatch
 teammates = []
 
-
+# This is directly copied from champ select
 teammates_dump = """dead player I joined the lobby
 dead player I joined the lobby
 season 6 dun joined the lobby
 Krovos joined the lobby
-sha ß joined the lobby"""
+The Nubby Puppy joined the lobby"""
 
-lobby_dump = open("C:\\logs\\lobbydump.txt")
 regex_pattern = r"(.*)(\sjoined the lobby)"
 x = re.findall(regex_pattern, teammates_dump, flags=re.MULTILINE)
 print(f"{x[0][0]},\n{x[1][0]},\n{x[2][0]},\n{x[3][0]},\n{x[4][0]}")

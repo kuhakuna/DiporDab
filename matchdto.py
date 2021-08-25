@@ -2,12 +2,7 @@ import pprint
 
 from riotwatcher import LolWatcher, ApiError
 
-import SIDEENUM
-from SIDEENUM import Side
-
 import os
-
-side = Side
 # "deadplayeri" puuid: B9EYucaevIeQ4nteZYIuW5kx7fJ8IbQgVFgRJWViShiBF-ggsRkxI6XsAXQ1cq4lXkDfhqoesIv34g
 lol_watcher = LolWatcher(os.environ.get('RIOTAPIKEY'), default_match_v5=True)
 
@@ -20,10 +15,8 @@ class MatchData:
         self.selected_champ = self.match_id['info']['participants'][0]
         x = range(10)
         for n in x:
-            print(n)
-            if self.match_id['info']['participants'][n]['summonerName'] == player_ign:
+            if self.match_id['info']['participants'][n]['summonerName'].strip() == player_ign:
                 self.selected_champ = self.match_id['info']['participants'][n].copy()
-                print(f"Guessed summoner name:{self.selected_champ['summonerName']}")
 
         self.summonerName = self.selected_champ['summonerName']
 
